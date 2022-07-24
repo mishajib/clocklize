@@ -41,8 +41,8 @@
                                 <tr>
                                     <td>{{ $users->firstItem() + $key }}</td>
                                     <td>
-                                        <img src="{{ storagelink($user->image) }}" alt="{{ $user->name }}"
-                                             style="height: 10rem;">
+                                        <img src="{{ storagelink($user->image, 'user') }}" alt="{{ $user->name }}"
+                                             style="height: 5rem;">
                                     </td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->total_day_present }}</td>

@@ -8,7 +8,7 @@
         <div class="input-group mb-3">
             <input type="text"
                    class="form-control @error('email') is-invalid @enderror"
-                   name="email"
+                   name="email" required
                    placeholder="{{ __('default.enter_placeholder', ['placeholder' => __('default.email')]) }}"
                    autocomplete="email" autofocus
                    value="{{ old('email') }}">
@@ -26,7 +26,7 @@
 
         <div class="input-group mb-3">
             <input type="password" class="form-control @error('password') is-invalid @enderror"
-                   name="password"
+                   name="password" required
                    placeholder="{{ __('default.enter_placeholder', ['placeholder' => __('default.password')]) }}"
                    autocomplete="current-password">
             <div class="input-group-append">
@@ -62,6 +62,14 @@
         @if (Route::has('password.request'))
             <p class="mb-1">
                 <a href="{{ route('password.request') }}">{{ __('default.forgot_password') . '?' }}</a>
+            </p>
+        @endif
+
+        @if (Route::has('register'))
+            <p class="mb-0">
+                <a href="{{ route('register') }}" class="text-center">
+                    {{ __('default.register_as_a_new_member') }}
+                </a>
             </p>
         @endif
     </x-slot>

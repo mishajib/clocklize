@@ -24,8 +24,8 @@
                                 <tr>
                                     <td>{{ $attendances->firstItem() + $key }}</td>
                                     <td>
-                                        <img src="{{ storagelink($attendance->user->image) }}" alt="{{ $attendance->user->name }}"
-                                             style="height: 10rem;">
+                                        <img src="{{ storagelink($attendance->user->image, 'user') }}" alt="{{ $attendance->user->name }}"
+                                             style="height: 5rem;">
                                     </td>
                                     <td>{{ $attendance->user->name }}</td>
                                     <td>{{ date('F j, Y - h:i:sa', strtotime($attendance->created_at)) }}</td>

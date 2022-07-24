@@ -110,4 +110,8 @@ return [
     'monthly_reports_month'                     => 'Monthly Reports :month',
     'date'                                      => 'Date',
     'reports'                                   => 'Reports',
+    'member_registration'                       => 'Member Registration',
+    'member_registered_successfully'            => 'Member registered successfully.',
+    'register_as_a_new_member'                  => 'Register as a new member.',
+    'register'                                  => 'Register',
 ];

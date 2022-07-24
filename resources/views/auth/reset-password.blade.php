@@ -17,7 +17,7 @@
             <div class="input-group mb-3">
                 <input type="password" autofocus
                        class="form-control @error('password') is-invalid @enderror"
-                       name="password" id="password"
+                       name="password" id="password" required
                        placeholder="{{ __('default.enter_placeholder', ['placeholder' => Str::lower(__('default.new_password'))]) }}">
 
                 @error('password')

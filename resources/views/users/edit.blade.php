@@ -57,7 +57,7 @@
                                 {{ __("default.profile_image") }}
                             </label>
                             <input type="file" class="form-control" name="image" id="profile-image">
-                            <img class="mt-3" id="image_holder" src="{{ storagelink($user->image) }}"
+                            <img class="mt-3" id="image_holder" src="{{ storagelink($user->image, 'user') }}"
                                  alt="profile_image"
                                  style="height: 5rem;">
                         </div>
