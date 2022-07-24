@@ -17,7 +17,7 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper" id="app">
-    <div class="loader loader-bar is-active" id="overlay-loader"></div>
+{{--    <div class="loader loader-bar is-active" id="overlay-loader"></div>--}}
 
 
     <!-- Navbar -->

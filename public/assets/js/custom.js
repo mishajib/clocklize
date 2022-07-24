@@ -272,11 +272,10 @@ function readInputImageURL(input) {
 
 $(document).ready(function () {
     $.widget.bridge('uibutton', $.ui.button);
-    window.onload = function () {
-        $('#overlay-loader').fadeOut(500, function () {
-            $('#overlay-loader').hide();
-        });
-    };
+
+    /*$('#overlay-loader').fadeOut(500, function () {
+        $('#overlay-loader').hide();
+    });*/
 });
 
 
