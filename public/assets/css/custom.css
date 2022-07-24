@@ -1,0 +1,95 @@
+/*Datatables css*/
+#dt-html-builder_wrapper .dt-buttons {
+    margin-bottom: -50px;
+}
+
+#dt-html-builder_paginate {
+    margin-top: -30px;
+}
+
+/*Select Image / Choose Image Button CSS*/
+.button-add-pic {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.button-add-pic .upp-add-pic input {
+    overflow: hidden;
+    height: 0;
+    width: 0;
+}
+
+.button-add-pic .upp-add-pic label {
+    color: #fff;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+/*filemanager image preview*/
+.thumb-item {
+    position: relative;
+    display: inline-block;
+}
+
+.remove-btn {
+    position: absolute;
+    right: 10px;
+    top: -3px;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    background-color: #a94442;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.remove-btn:after {
+    position: absolute;
+    content: "";
+    left: 1px;
+    top: 6px;
+    width: 80%;
+    height: 2px;
+    background-color: #fff;
+}
+
+/*create order page*/
+/*order create page css*/
+.mi-first-ul ul li span {
+    font-size: 16px;
+}
+
+.mi-second-border {
+    border-top: 1px solid #078058;
+}
+
+.mi-pro-grand {
+    color: #078058;
+}
+
+.mi-pro-subtotal {
+    color: #1330ff;
+}
+
+/* select2 css*/
+.select2-container--default .select2-selection--single {
+    height: 40px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 8px !important;
+}
+
+.width-100px {
+    width: 100px;
+}
+
+.width-200px {
+    width: 200px;
+}
+
+.width-300px {
+    width: 300px;
+}
