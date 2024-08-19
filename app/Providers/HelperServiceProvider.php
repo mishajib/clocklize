@@ -25,13 +25,13 @@ class HelperServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->helpers(app_path('Helpers'.DIRECTORY_SEPARATOR));
+        $this->helpers(app_path('Helpers' . DIRECTORY_SEPARATOR));
     }
 
     public function helpers($folder)
     {
         $recursive_directory_iterator = new RecursiveDirectoryIterator($folder);
-        $recursive_iterator  = new RecursiveIteratorIterator($recursive_directory_iterator);
+        $recursive_iterator = new RecursiveIteratorIterator($recursive_directory_iterator);
 
         while ($recursive_iterator->valid()) {
             if (

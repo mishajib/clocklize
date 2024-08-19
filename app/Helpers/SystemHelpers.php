@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 // Get file from storage folder
-if (!function_exists('storagelink')) {
+if (! function_exists('storagelink')) {
     function storagelink($url, $type = 'default')
     {
         $url = $url ?? '';
@@ -14,24 +14,24 @@ if (!function_exists('storagelink')) {
             if ($type == 'user') {
                 return asset('assets/img/avatar5.png');
             }
+
             return asset('assets/img/mi-logo.png');
         }
     }
 }
 
-
 // Check user permission
-if (!function_exists('checkPermission')) {
+if (! function_exists('checkPermission')) {
     function checkPermission($role)
     {
-        if (!auth()->user()->hasRole($role)) {
+        if (! auth()->user()->hasRole($role)) {
             abort(403, __('default.you_do_not_have_permission_to_access_this'));
         }
     }
 }
 
 // Check current route
-if (!function_exists('routeIs')) {
+if (! function_exists('routeIs')) {
     function routeIs($route)
     {
         return request()->routeIs($route);
@@ -51,10 +51,10 @@ function imageUploadHandler($image, $request_path = 'default', $size = null, $ol
 
     if (isset($size)) {
         $request_size = explode('x', $size);
-        $width        = $request_size[0];
-        $height       = $request_size[1];
+        $width = $request_size[0];
+        $height = $request_size[1];
     } else {
-        $width  = 80;
+        $width = 80;
         $height = 80;
     }
 
@@ -65,9 +65,8 @@ function imageUploadHandler($image, $request_path = 'default', $size = null, $ol
     return $path;
 }
 
-
 // Session flash
-if (!function_exists('sendFlash')) {
+if (! function_exists('sendFlash')) {
     function sendFlash($message, $type = 'toast_success')
     {
         session()->flash($type, $message);

@@ -14,7 +14,8 @@ class ProfileController extends Controller
     public function index()
     {
         $page_title = __('default.profile');
-        $user       = Auth::user();
+        $user = Auth::user();
+
         return view('profile.index', compact('page_title', 'user'));
     }
 
@@ -30,7 +31,7 @@ class ProfileController extends Controller
 
         $user->update($data);
 
-        session()->flash('toast_success', __("default.module_updated_successfully", ['module' => __("default.profile")]));
+        session()->flash('toast_success', __('default.module_updated_successfully', ['module' => __('default.profile')]));
 
         return back();
     }
@@ -38,6 +39,7 @@ class ProfileController extends Controller
     public function changePassword()
     {
         $page_title = __('default.reset_password');
+
         return view('profile.security', compact('page_title'));
     }
 
@@ -45,24 +47,27 @@ class ProfileController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'old_password' => 'required',
-            'password'     => 'required|confirmed',
+            'password' => 'required|confirmed',
         ]);
 
         if ($validate->fails()) {
             session()->flash('toast_error', $validate->errors()->first());
+
             return back();
         }
 
         $hashedPassword = Auth::user()->getAuthPassword();
-        if (!Hash::check($request->old_password, $hashedPassword)) {
+        if (! Hash::check($request->old_password, $hashedPassword)) {
             session()->flash('toast_error', __('default.current_password_not_matched'));
+
             return back();
         }
         if (Hash::check($request->password, $hashedPassword)) {
-            session()->flash('toast_error', __("default.new_password_same_error_message"));
+            session()->flash('toast_error', __('default.new_password_same_error_message'));
+
             return back();
         }
-        $user           = User::findOrFail(Auth::id());
+        $user = User::findOrFail(Auth::id());
         $user->password = Hash::make($request->password);
         $user->save();
         Auth::logout();

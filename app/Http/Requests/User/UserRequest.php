@@ -24,19 +24,19 @@ class UserRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name'     => 'bail|required|string',
-            'email'    => 'bail|required|email|string|unique:users',
-            'image'    => 'bail|required|image',
-            'role'     => 'bail|required|string|in:admin,member',
+            'name' => 'bail|required|string',
+            'email' => 'bail|required|email|string|unique:users',
+            'image' => 'bail|required|image',
+            'role' => 'bail|required|string|in:admin,member',
             'password' => 'bail|required|string|confirmed|min:8',
         ];
 
         if ($this->method() == 'PUT') {
             $rules = [
-                'name'     => 'bail|required|string',
-                'email'    => 'bail|required|email|string|unique:users,id,:id',
-                'image'    => 'bail|nullable|image',
-                'role'     => 'bail|required|string|in:admin,member',
+                'name' => 'bail|required|string',
+                'email' => 'bail|required|email|string|unique:users,id,:id',
+                'image' => 'bail|nullable|image',
+                'role' => 'bail|required|string|in:admin,member',
                 'password' => 'bail|nullable|string|confirmed|min:8',
             ];
         }
@@ -47,7 +47,7 @@ class UserRequest extends FormRequest
     public function attributes()
     {
         return [
-            'image' => 'Profile image'
+            'image' => 'Profile image',
         ];
     }
 }

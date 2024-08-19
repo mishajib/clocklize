@@ -13,7 +13,6 @@ class DashboardController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param Request $request
      * @return Application|Factory|View
      */
     public function __invoke(Request $request)
@@ -21,7 +20,7 @@ class DashboardController extends Controller
         $page_title = __('default.dashboard');
 
         $attendances = Attendance::latest()->with('user')->paginate(10);
-        $page        = view('dashboard', compact('page_title', 'attendances'));
+        $page = view('dashboard', compact('page_title', 'attendances'));
 
         if (auth()->user()->hasRole('member')) {
             $page = view('member_dashboard', compact('page_title'));

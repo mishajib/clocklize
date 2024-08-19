@@ -3,16 +3,15 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Http\Request;
 
 class Admin extends Middleware
 {
     /**
      * Handle an incoming request.
      *
-     * @param Request $request
-     * @param \Closure $next
+     * @param  Request  $request
      * @return mixed
      */
     public function handle($request, Closure $next, ...$guards)
@@ -28,7 +27,7 @@ class Admin extends Middleware
 
     protected function redirectTo($request)
     {
-        if (!$request->expectsJson()) {
+        if (! $request->expectsJson()) {
             return route('login');
         }
     }

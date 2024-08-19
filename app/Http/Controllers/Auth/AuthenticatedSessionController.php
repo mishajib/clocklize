@@ -20,14 +20,14 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        $page_title = __("default.login");
+        $page_title = __('default.login');
+
         return view('auth.login', compact('page_title'));
     }
 
     /**
      * Handle an incoming authentication request.
      *
-     * @param LoginRequest $request
      * @return RedirectResponse
      */
     public function store(LoginRequest $request)
@@ -43,7 +43,6 @@ class AuthenticatedSessionController extends Controller
     /**
      * Destroy an authenticated session.
      *
-     * @param Request $request
      * @return RedirectResponse
      */
     public function destroy(Request $request)

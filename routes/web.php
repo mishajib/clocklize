@@ -9,7 +9,6 @@ use App\Http\Middleware\Admin;
 use App\Http\Middleware\Member;
 use Illuminate\Support\Facades\Route;
 
-
 Route::get('/', function () {
     return view('welcome');
 })->name('home');

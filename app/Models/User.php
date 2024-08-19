@@ -49,12 +49,13 @@ class User extends Authenticatable
     }
 
     // Roles
-    const ADMIN  = 'admin';
+    const ADMIN = 'admin';
+
     const MEMBER = 'member';
+
     public static $roles = [self::ADMIN, self::MEMBER];
 
     protected $appends = ['total_day_present'];
-
 
     // Check user role
     public function hasRole($role): bool
@@ -70,6 +71,7 @@ class User extends Authenticatable
     public function getTotalDayPresentAttribute()
     {
         $month = request()->month ?? Carbon::now()->format('Y-m');
+
         return $this->attendances()->whereMonth('created_at', Carbon::parse($month)->format('m'))
             ->whereYear('created_at', Carbon::parse($month)->format('Y'))->count();
     }

@@ -3,16 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\User\UserRequest;
-use App\Models\Attendance;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
 
 class UsersController extends Controller
@@ -38,7 +37,7 @@ class UsersController extends Controller
     public function create()
     {
         $page_title = __('default.add_new_module', ['module' => Str::lower(__('default.user'))]);
-        $roles      = User::$roles;
+        $roles = User::$roles;
 
         return view('users.create', compact('page_title', 'roles'));
 
@@ -46,9 +45,6 @@ class UsersController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param UserRequest $request
-     * @return RedirectResponse
      */
     public function store(UserRequest $request): RedirectResponse
     {
@@ -56,7 +52,7 @@ class UsersController extends Controller
 
         // Image upload manipulation
         if ($request->hasFile('image')) {
-            $path          = imageUploadHandler($request->file('image'), 'user-images', '256x256');
+            $path = imageUploadHandler($request->file('image'), 'user-images', '256x256');
             $data['image'] = $path;
         }
 
@@ -66,7 +62,6 @@ class UsersController extends Controller
         // Create User
         User::create($data);
 
-
         sendFlash(__('default.module_added_successfully', ['module' => __('default.user')]));
 
         return back();
@@ -75,7 +70,6 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param User $user
      * @return Application|Factory|View
      */
     public function show(User $user)
@@ -88,23 +82,18 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param User $user
      * @return Application|Factory|View
      */
     public function edit(User $user)
     {
         $page_title = __('default.edit_module', ['module' => __('default.user')]);
-        $roles      = User::$roles;
+        $roles = User::$roles;
 
         return view('users.edit', compact('page_title', 'user', 'roles'));
     }
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param UserRequest $request
-     * @param User $user
-     * @return RedirectResponse
      */
     public function update(UserRequest $request, User $user): RedirectResponse
     {
@@ -112,7 +101,7 @@ class UsersController extends Controller
 
         // Image upload manipulation
         if ($request->hasFile('image')) {
-            $path          = imageUploadHandler(
+            $path = imageUploadHandler(
                 $request->file('image'),
                 'user-images',
                 '256x256',
@@ -136,14 +125,12 @@ class UsersController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param User $user
-     * @return RedirectResponse
      */
     public function destroy(User $user): RedirectResponse
     {
         if ($user->id == auth()->id()) {
-            sendFlash(__("default.you_wont_delete_by_own"), 'toast_error');
+            sendFlash(__('default.you_wont_delete_by_own'), 'toast_error');
+
             return back();
         }
 

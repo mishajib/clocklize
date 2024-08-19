@@ -83,7 +83,7 @@ return [
     'select_module' => 'Select :module',
     'remove_module' => 'Remove :module',
     'unauthorized' => 'Unauthorized!',
-    'you_are_not_authorized_to_access_this' => "You are not authorized to access this!",
+    'you_are_not_authorized_to_access_this' => 'You are not authorized to access this!',
     'user' => 'User',
     'users' => 'Users',
     'reset' => 'Reset',

@@ -24,7 +24,7 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  => 'bail|required|string',
+            'name' => 'bail|required|string',
             'image' => 'bail|nullable|image',
         ];
     }

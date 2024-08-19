@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Response;
 
 class AttendanceController extends Controller
 {
-
+    /*
+     * Display a listing of the resource.
+     */
     public function index(Request $request)
     {
         $data = [];
@@ -27,14 +29,14 @@ class AttendanceController extends Controller
                     $data[] = [
                         'title' => $attendance->memo . ' - (' . Carbon::parse($attendance->created_at)->format('d/m/Y - h:i:sA') . ')',
                         'start' => $date->format('Y-m-d'),
-                        'end'   => $date->format('Y-m-d'),
+                        'end' => $date->format('Y-m-d'),
                     ];
                 } else {
-                    if (!$date->isToday()) {
+                    if (! $date->isToday()) {
                         $data[] = [
                             'title' => 'Absent',
                             'start' => $date->format('Y-m-d'),
-                            'end'   => $date->format('Y-m-d'),
+                            'end' => $date->format('Y-m-d'),
                             'color' => '#FF0000',
                         ];
                     }
@@ -48,10 +50,10 @@ class AttendanceController extends Controller
     public function store(Request $request)
     {
         $attendance_exist = Attendance::whereDate('created_at', $request->date)->exists();
-        if (!$attendance_exist && Carbon::parse($request->date)->isToday()) {
+        if (! $attendance_exist && Carbon::parse($request->date)->isToday()) {
             $attendance = Attendance::create([
                 'user_id' => auth()->id(),
-                'memo'    => $request->memo,
+                'memo' => $request->memo ?? 'Present',
             ]);
 
             $message = 'Attendance added successfully.';
@@ -59,8 +61,8 @@ class AttendanceController extends Controller
             return response()->json([
                 'success' => true,
                 'message' => $message,
-                'date'    => Carbon::parse($attendance->created_at)->format('Y-m-d'),
-                'memo'    => $attendance->memo . ' - (' . Carbon::parse($attendance->created_at)->format('d/m/Y - h:i:sA') . ')',
+                'date' => Carbon::parse($attendance->created_at)->format('Y-m-d'),
+                'memo' => $attendance->memo . ' - (' . Carbon::parse($attendance->created_at)->format('d/m/Y - h:i:sA') . ')',
             ], 200);
         }
     }

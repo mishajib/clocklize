@@ -15,14 +15,14 @@ class PasswordResetLinkController extends Controller
      */
     public function create()
     {
-        $page_title = __("default.forgot_password");
+        $page_title = __('default.forgot_password');
+
         return view('auth.forgot-password', compact('page_title'));
     }
 
     /**
      * Handle an incoming password reset link request.
      *
-     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      *
      * @throws \Illuminate\Validation\ValidationException
