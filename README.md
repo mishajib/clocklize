@@ -48,6 +48,10 @@ There are two types of users in the system: Admin and User.
 
 ### Gallery
 
+| <img src="/public/assets/img/galleries/image10.png" alt="logo" width="600" height="300" /> | <img src="/public/assets/img/galleries/image12.png" alt="logo" width="600" height="300" /> | <img src="/public/assets/img/galleries/image11.png" alt="logo" width="600" height="300" /> |
+|:------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------:|
+|                                       **Login Page**                                       |                                  **Member Register Page**                                  |                                  **Forgot Password Page**                                  |
+
 | <img src="/public/assets/img/galleries/image1.png" alt="logo" width="600" height="300" /> | <img src="/public/assets/img/galleries/image2.png" alt="logo" width="600" height="300" /> | <img src="/public/assets/img/galleries/image3.png" alt="logo" width="600" height="300" /> |
 |:-----------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|
 |                                    **Admin Dashboard**                                    |                                  **User Add/Edit Page**                                   |                                       **User List**                                       |
