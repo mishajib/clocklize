@@ -6,12 +6,12 @@
         </li>
 
 
-        <li class="nav-item d-none d-sm-inline-block">
+        {{--<li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('home') }}" class="nav-link">
                 <i class="fas fa-home"></i>
                 Home
             </a>
-        </li>
+        </li>--}}
     </ul>
 
 

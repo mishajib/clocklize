@@ -1,10 +1,10 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/dashboard" class="brand-link">
-        <img src="{{ asset('assets/img/mi-logo.png') }}" alt="{{ config('app.name') }}"
+        <img src="{{ asset('assets/img/logo.webp') }}" alt="{{ config('app.name') }}"
              class="brand-image img-circle"
-             style="opacity: .8">
-        <span class="brand-text font-weight-light">{{ __('default.attendance_system') }}</span>
+             style="opacity: 0.8">
+        <span class="brand-text font-weight-light">{{ __('default.clocklize') }}</span>
     </a>
 
     <!-- Sidebar -->
